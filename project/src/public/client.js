@@ -35,11 +35,11 @@ const App = (state) => {
                 </section>
                 <section>         
 
-                ${state.get("currentRover") === "none" 
-                ?
-                    ImageOfTheDay(state)
-                : 
-                    RoverDetails(state)}
+                ${state.get("currentRover") === "none"
+            ?
+            ImageOfTheDay(state)
+            :
+            RoverDetails(state)}
                 
                 </section>
         </main>
@@ -108,7 +108,7 @@ const RoverDetails = (state) => {
             if (element[0] != "photos")
                 return `<li>${element[0]}: ${element[1]}</li>`
         }).join("\n")
-    
+
     const PhotoGallery = (currentRover) => {
         const photoCollection = currentRover.photos.map(element => {
             return (`
@@ -121,7 +121,7 @@ const RoverDetails = (state) => {
             `)
         }).join("\n")
         return photoCollection;
-  
+
     }
 
     return (`
@@ -179,7 +179,7 @@ const getImageOfTheDay = async (state) => {
 
 // getting rover manifest and images with two api-requests
 
-const getRoverData = async ( roverName) => {
+const getRoverData = async (roverName) => {
     const getRoverManifest = async (roverName) => {
         const response = await fetch(`http://localhost:3000/mission-manifest?rover=${roverName}`);
         const roverManifest = await response.json(); // get data from the promise returned by .json()
@@ -193,7 +193,7 @@ const getRoverData = async ( roverName) => {
     }
 
     const roverManifest = await getRoverManifest(roverName);
-    const latestPhotos = await getRoverPhotos(roverName, 100); 
+    const latestPhotos = await getRoverPhotos(roverName, 100);
 
     const newState = store.set('currentRover', {
         name: roverManifest.name,
