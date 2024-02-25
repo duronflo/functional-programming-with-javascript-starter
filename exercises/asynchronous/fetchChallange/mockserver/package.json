@@ -1,0 +1,16 @@
+{
+    "name": "quick-mock-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./index.js"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.3",
+        "mongoose": "^5.2.8",
+        "node-fetch": "^2.6.0"
+    }
+}
